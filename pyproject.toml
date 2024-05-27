@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sighapi"
+version = "0.0.1a"
+description = "Sigh text to audio model"
+requires-python = ">=3.8"
+
+dependencies = [
+    "boto3",
+    "encodec",
+    "funcy",
+    "huggingface-hub>=0.14.1",
+    "numpy",
+    "scipy",
+    "tokenizers",
+    "torch",
+    "tqdm",
+    "transformers",
+]
+
+[project.optional-dependencies]
+dev = [
+    "bandit",
+    "black",
+    "codecov",
+    "flake8",
+    "hypothesis>=6.14,<7",
+    "isort>=5.0.0,<6",
+    "jupyter",
+    "mypy",
+    "nbconvert",
+    "nbformat",
+    "pydocstyle",
+    "pylint",
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.setuptools]
+packages = ["sighapi"]
+
+[tool.setuptools.package-data]
+sighapi = ["assets/prompts/*.npz", "assets/prompts/v2/*.npz"]
+
+
+[tool.black]
+line-length = 100
